@@ -21,10 +21,9 @@ Random rng = new Random();
 // PART ONE: INITIAL INPUT
 System.Console.Write("Enter your first and last name. ");
 string? name = Convert.ToString(Console.ReadLine());
-const bool nullChecker = true;
 
 //CHECK INITIAL INPUT
-while (nullChecker == true)
+while (true)
 {
     if(name == null || name == "")
     {
@@ -52,8 +51,14 @@ string userName = (firstName[0]+lastName).ToLower();
 string initials = firstName[0] + "." + lastName[0] + ".";
 
 //---------- PART TWO: THE NUMBERS ----------//
-int studentID = rng.Next(100000, 1000000);
-int lockerNumber = rng.Next(1, 501);
+
+const int minStudentID = 100000;
+const int maxStudentID = 1000000;
+const int minLockerNumber = 1;
+const int maxLockerNumber = 501;
+
+int studentID = rng.Next(minStudentID, maxStudentID);
+int lockerNumber = rng.Next(minLockerNumber, maxLockerNumber);
 
 
 
@@ -76,18 +81,23 @@ System.Console.Write("How fast do you walk in feet per second? ");
 double walkingSpeed = Convert.ToDouble(Console.ReadLine());
 
 //PART THREE CALCULATIONS
+
+const int secondsPerMinute = 60;
+
 double distance = Math.Round(Math.Sqrt(Math.Pow(classX-dormX, 2) + Math.Pow(classY-dormY, 2)), 1);
 double walkingTime = Math.Round(distance/walkingSpeed);
 
-int walkingMinutes = Convert.ToInt16(walkingTime / 60);
-int walkingSeconds = Convert.ToInt16(walkingTime % 60);
+int walkingMinutes = Convert.ToInt16(walkingTime / secondsPerMinute);
+int walkingSeconds = Convert.ToInt16(walkingTime % secondsPerMinute);
 
 
 
 //---------- PART FOUR: ETSU STUDENT BADGE ----------//
 
 //PART FOUR CALCULATION: STUDENT ID WITH CHECK DIGIT
-int checkDigit = studentID % 9;
+const int checkDigitMod = 9;
+
+int checkDigit = studentID % checkDigitMod;
 string checkStudentID = studentID + "-" + checkDigit;
 
 
