@@ -1,0 +1,4 @@
+[*.cs]
+
+# CS8602: Dereference of a possibly null reference. Loop checks for a non-null value for "name" variable.
+dotnet_diagnostic.CS8602.severity = none
