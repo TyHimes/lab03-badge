@@ -13,18 +13,17 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Identity;
 
+//RANDOM NUMBER GENERATOR
+Random rng = new Random();
 
 //---------- PART ONE: THE NAME ----------//
+
 // PART ONE: INITIAL INPUT
 System.Console.Write("Enter your first and last name. ");
 string? name = Convert.ToString(Console.ReadLine());
 const bool nullChecker = true;
 
-//RANDOM NUMBER GENERATOR
-Random rng = new Random();
-
-
-//CHECKS INPUT
+//CHECK INITIAL INPUT
 while (nullChecker == true)
 {
     if(name == null || name == "")
@@ -52,14 +51,14 @@ string userName = (firstName[0]+lastName).ToLower();
 
 string initials = firstName[0] + "." + lastName[0] + ".";
 
-
-//PART TWO: NUMBERS
+//---------- PART TWO: THE NUMBERS ----------//
 int studentID = rng.Next(100000, 1000000);
 int lockerNumber = rng.Next(1, 501);
 
 
 
 //---------- PART THREE: THE WALK ----------//
+
 //PART THREE INPUT
 System.Console.Write("What is your dorm's X value?");
 double dormX = Convert.ToDouble(Console.ReadLine());
@@ -94,13 +93,13 @@ string checkStudentID = studentID + "-" + checkDigit;
 
 //---------- ENTIRE OUTPUT BLOCK ----------//
 
-// PART ONE OUTPUT
+// PART ONE OUTPUT:
 System.Console.WriteLine($"Name on badge: {name}");
 System.Console.WriteLine($"Username: {userName}");
 System.Console.WriteLine($"Initials: {initials}");
 System.Console.WriteLine($"Letters in last name: {lastNameLength}\n");
 
-// PART TWO OUTPUT
+// PART TWO OUTPUT:
 System.Console.WriteLine($"Student ID: {studentID}");
 System.Console.WriteLine($"Locker: {lockerNumber}\n");
 
